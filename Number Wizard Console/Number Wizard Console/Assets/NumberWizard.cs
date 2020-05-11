@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//This is the C# script for a simple console game where the computer tries to guess
+//a number that the user has selected between 1 and 1000
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +14,13 @@ public class NumberWizard : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("Welcome to Number Wizard!");
-        Debug.Log("Pick a number, but don't tell me what it is...");
-        Debug.Log("The highest number you can pick is: " + max);
-        Debug.Log("The lowest number you can pick is: " + min);
-        Debug.Log("Tell me if your number is higher or lower than 500");
+        Debug.Log("Hey there! Welcome to the Number Wizard!");
+        Debug.Log("Now, I want you to think of a number, but don't tell me what it is.");
+        Debug.Log("The highest number you can pick iss: " + max);
+        Debug.Log("And the lowest number you can pick is: " + min);
+        Debug.Log("So, let's get started. Tell me, is your number greater or lower than " + guess);
         Debug.Log("Push Up = Higher, Push Down = Lower, Push Enter = Correct");
+        max = max + 1;
     }
 
     // Update is called once per frame
@@ -27,25 +30,26 @@ public class NumberWizard : MonoBehaviour
         //Detect when the up arrow key is pressed down
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Up Arrow key was pressed.");
+            //Debug.Log("You selected higher.");
             min = guess;
             guess = (max + min) / 2;
-            Debug.Log(guess);
+            Debug.Log("Is it higher or lower than " + guess);
         }
 
         //Detect when down key is pressed
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("Down Arrow key was pressed.");
+            //Debug.Log("You selected lower.");
             max = guess;
             guess = (max + min) / 2;
-            Debug.Log(guess);
+            Debug.Log("Is it higher or lower than " + guess);
         }
 
         //Detect when enter/return key is pressed
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("You hit enter.");
+            
+            Debug.Log("Boy am I smart?!");
         }
     }
 }
